@@ -1,7 +1,7 @@
 class Zbar < Formula
   desc "Suite of barcodes-reading tools"
   homepage "https://github.com/mchehab/zbar"
-  revision 10
+  revision 9
 
   stable do
     url "https://linuxtv.org/downloads/zbar/zbar-0.23.tar.bz2"
@@ -21,21 +21,9 @@ class Zbar < Formula
   depends_on "xz"
 
   def install
-    if build.head?
-      inreplace "configure.ac", "-Werror", ""
-      gettext = Formula["gettext"]
-      system "autoreconf", "-fvi", "-I", "#{gettext.opt_share}/aclocal"
-    end
-
-    # ImageMagick 7 compatibility
-    # Reported 20 Jun 2016 https://sourceforge.net/p/zbar/support-requests/156/
-    inreplace ["configure", "zbarimg/zbarimg.c"],
-      "wand/MagickWand.h",
-      "ImageMagick-7/MagickWand/MagickWand.h"
-
     args = %W[
       --prefix=#{prefix}
-      --without-python
+      --with-python=python3
       --without-qt
       --disable-video
       --without-gtk
