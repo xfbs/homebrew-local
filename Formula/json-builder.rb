@@ -6,7 +6,7 @@ class JsonBuilder < Formula
   head "https://github.com/udp/json-builder.git"
 
   depends_on "cmake" => :build
-  depends_on "json-parser"
+  depends_on "json-parser" => ["HEAD"]
 
   def install
     args = %W[
