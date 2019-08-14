@@ -1,7 +1,12 @@
 class Passgen < Formula
   desc "Regex-based password generator."
   homepage "https://github.com/xfbs/passgen"
-  revision 1
+  revision 0
+
+  stable do
+    url "https://github.com/xfbs/passgen/archive/v0.1.1.tar.gz"
+    sha256 "7e94f9f7944504817d1fb859305a8d4e813b7987dc70bed1ff1ad41a72107c45"
+  end
 
   head "https://github.com/xfbs/passgen.git"
 
@@ -18,5 +23,9 @@ class Passgen < Formula
 
     system "make", *args
     system "make", "install"
+  end
+
+  test do
+    bin/"passgen"
   end
 end
