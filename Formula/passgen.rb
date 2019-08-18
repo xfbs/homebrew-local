@@ -4,14 +4,15 @@ class Passgen < Formula
   revision 0
 
   stable do
-    url "https://github.com/xfbs/passgen/archive/v0.1.1.tar.gz"
-    sha256 "7e94f9f7944504817d1fb859305a8d4e813b7987dc70bed1ff1ad41a72107c45"
+    url "https://github.com/xfbs/passgen/archive/v0.1.2.tar.gz"
+    sha256 "c4fb739f57e71c69a7ba34863ac240e2eb6113da174dd4073cf20f9148e94f8a"
   end
 
   head "https://github.com/xfbs/passgen.git"
 
   depends_on "utf8proc"
   depends_on "libsodium"
+  depends_on "jansson"
   depends_on "pkg-config" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
